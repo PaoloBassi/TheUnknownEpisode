@@ -1,9 +1,11 @@
-package paoledo.app.theunknownepisode;
+package paoledo.app.theunknownepisode.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import paoledo.app.theunknownepisode.R;
 
 
 public class MainActivity extends Activity {
