@@ -9,15 +9,16 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import paoledo.app.theunknownepisode.Fragments.ScreenSlidePageFragment;
+import paoledo.app.theunknownepisode.Fragments.ScreenSlidePageFragmentOne;
+import paoledo.app.theunknownepisode.Fragments.ScreenSlidePageFragmentThree;
+import paoledo.app.theunknownepisode.Fragments.ScreenSlidePageFragmentTwo;
 import paoledo.app.theunknownepisode.R;
 import paoledo.app.theunknownepisode.Utilities.LoginPreferences;
-import paoledo.app.theunknownepisode.Utilities.ZoomOutPageTransformer;
 
 public class ScreenSlidePagerActivity extends FragmentActivity{
 
     // number of pages to show
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 3;
 
     // pager widget
     private ViewPager mPager;
@@ -68,7 +69,16 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
 
         @Override
         public Fragment getItem(int i) {
-            return new ScreenSlidePageFragment();
+
+            // choose the right fragment to display
+            switch (i){
+                case 0: return new ScreenSlidePageFragmentOne();
+                case 1: return new ScreenSlidePageFragmentThree();
+                case 2: return new ScreenSlidePageFragmentTwo();
+                default: return null;
+            }
+
+
         }
 
         @Override

@@ -10,7 +10,7 @@
         android:lineSpacingMultiplier="1.2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Slide choice (if you close and reopen this app you will not see this pages anymore)"
+        android:text="@string/firstPage"
     />
 
 </ScrollView>
