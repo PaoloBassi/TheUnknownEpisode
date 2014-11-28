@@ -1,5 +1,6 @@
 package paoledo.app.theunknownepisode.Activities;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.support.v4.view.ViewPager;
 
 import paoledo.app.theunknownepisode.Fragments.ScreenSlidePageFragment;
 import paoledo.app.theunknownepisode.R;
+import paoledo.app.theunknownepisode.Utilities.LoginPreferences;
+import paoledo.app.theunknownepisode.Utilities.ZoomOutPageTransformer;
 
 public class ScreenSlidePagerActivity extends FragmentActivity{
 
@@ -25,12 +28,26 @@ public class ScreenSlidePagerActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slide);
 
-        // instantiate the ViewPager and the adapter
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
+        // if it's the first time that the user launches the app, continue. Else, launch main activity
+        if (LoginPreferences.isFirst(this)){
+            // set the layout
+            setContentView(R.layout.activity_screen_slide);
+
+            // instantiate the ViewPager and the adapter
+            mPager = (ViewPager) findViewById(R.id.pager);
+            mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+            mPager.setAdapter(mPagerAdapter);
+            // remove comment if you want to use the zoomOutPageTransformer animation
+            // mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        } else {
+            // lauch main activity
+            Intent intent = new Intent();
+            intent.setClass(this, MainActivity.class);
+            startActivity(intent);
+            // close this activity in order to avoid to return to it pressing the back button in MainActivity
+            this.finish();
+        }
     }
 
     @Override

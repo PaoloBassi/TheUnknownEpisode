@@ -1,18 +1,22 @@
 package paoledo.app.theunknownepisode.Activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import paoledo.app.theunknownepisode.R;
+import paoledo.app.theunknownepisode.Utilities.LoginPreferences;
 
 
 public class MainActivity extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
     }
 

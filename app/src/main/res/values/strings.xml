@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">TheUnknownEpisode</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Here we are in the main</string>
     <string name="action_settings">Settings</string>
 
 </resources>
